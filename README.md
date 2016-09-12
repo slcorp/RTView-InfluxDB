@@ -69,7 +69,7 @@ When you restart your application, you should now see the historian information 
 
 ##Files in the Repository
 ###influxdb.conf
-Contains configuration information about your MySQL instance
+Contains configuration information about your Influx database instance
 ###run.sh
 Run script
 ###init_database.sh
