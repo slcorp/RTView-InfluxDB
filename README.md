@@ -35,6 +35,7 @@ RTView-InfluxDB integration in Docker helps achieve the following goal:
 	You will see an alpha numeric string printing out if the run command is successful. 
 ###Step 7: Confirm if the InfluxDB instance started by the above step is running
 *docker ps -a*
+
 	You will see your InfluxDB instance listed as 'influx'
 ##Using the InfluxDB Instance for RTView History 
 * Download and setup RTView in your local machine. 
@@ -57,7 +58,7 @@ RTView-InfluxDB integration in Docker helps achieve the following goal:
 
 * Check the historian for this message:
 
-*INFO  main - [rtview] NOSQL InfluxDBHistorianHandler: com.sl.influxdb.InfluxDBHistorianHandler@1da51a35*
+	*INFO  main - [rtview] NOSQL InfluxDBHistorianHandler: com.sl.influxdb.InfluxDBHistorianHandler@1da51a35*
 
 ##To explore the data being written into the InfluxDB server
 * Open a browser window and connect to the HTTP API
