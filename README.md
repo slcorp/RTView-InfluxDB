@@ -48,15 +48,13 @@ RTView-InfluxDB integration in Docker helps achieve the following goal:
 	* sl.rtview.historian.customhandlerclassname=com.sl.influxdb.InfluxDBHistorianHandler
 * Configure the RTView dataserver to use the InfluxDB Custom Cache Extender 
 	* collector.sl.rtview.cache.customclassname=com.sl.influxdb.InfluxDBCacheExtender
-	
-* Start the data server and the historian
 
-###You may want to start a RTView application (e.g. EMSMON). 
+* You may want to start a RTView application (e.g. EMSMON) and the RTView Historian
 	start_rtv.bat emsmon dataserver -properties:influxdb_handlers
 	start_rtv.bat emsmon historian -properties:influxdb_handlers
 
-###Check the historian for this message:
-*INFO  main - [rtview] *** NOSQL InfluxDBHistorianHandler: com.sl.influxdb.InfluxDBHistorianHandler@1da51a35*
+* Check the historian for this message:
+*INFO  main - [rtview] NOSQL InfluxDBHistorianHandler: com.sl.influxdb.InfluxDBHistorianHandler@1da51a35*
 
 ##To explore the data being written into the InfluxDB server
 * Open a browser window and connect to the HTTP API
