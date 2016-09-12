@@ -11,8 +11,8 @@ RTView-InfluxDB integration in Docker helps achieve the following goal:
 
 ##Steps to Install and Run InfluxDB Database Instance in Docker
 
-###Step 1: Start the Docker Engine using the following command. 
-*sudo start docker*
+###Step 1: Start the Docker Engine Service using the following command. 
+*sudo service docker start*
 ###Step 2: Copy the InfluxDB Docker file and the relevant configuration files to the Linux server.
 	Dockerfile, run.sh, init_database.sh, influxdb.conf
 ###Step 3: Create a new directory in the server /opt/DATA with write permission. 
@@ -51,7 +51,7 @@ RTView-InfluxDB integration in Docker helps achieve the following goal:
 	
 * Start the data server and the historian
 
-You may want to start a RTView application (e.g. EMSMON or OCMON). 
+You may want to start a RTView application (e.g. EMSMON). 
 	start_rtv.bat emsmon dataserver -properties:influxdb_handlers
 	start_rtv.bat emsmon historian -properties:influxdb_handlers
 
@@ -63,6 +63,7 @@ INFO  main - [rtview] *** NOSQL InfluxDBHistorianHandler: com.sl.influxdb.Influx
 	* http://192.0.0.0:8086/query?pretty=true&db=RTVHISTORY&q=SHOW+MEASUREMENTS
 	
 	You should see the data being written into the InfluxDB database shown in the browser. 
+* See the browser_output.jpg for the screenshot of sample output. 
 	
 When you restart your application, you should now see the historian information from the InfluxDB database. 
 
