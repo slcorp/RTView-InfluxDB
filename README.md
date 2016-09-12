@@ -74,6 +74,10 @@ Contains configuration information about your MySQL instance
 Run script
 ###init_database.sh
 Creates default database and retention policies
+###influxdb_handlers.properties
+Contains necessary properties for custom handlers and its associated JAR file. 
+###influxdb_handlers.jar
+RTView custom influxdb handler JAR file
 ##Resources
 * Download RTView: http://sl.com/evaluation-request/
 * Download Docker Engine: https://docs.docker.com/engine/installation/
