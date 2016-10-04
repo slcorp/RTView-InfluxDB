@@ -10,6 +10,7 @@ RTView-InfluxDB integration in Docker helps achieve the following goal:
 * In the Client side, where you would run RTView, install Java version 1.5 and the RTView software. 
 
 ##Steps to Install and Run InfluxDB Database Instance in Docker
+(Directory: influxdb-rtview)
 
 ###Step 1: Start the Docker Engine Service using the following command. 
 *sudo service docker start*
@@ -26,7 +27,7 @@ RTView-InfluxDB integration in Docker helps achieve the following goal:
 	
 	You will see the image created with the name "influxdb-rtview"
 ###Step 6: Run the Docker image with the InfluxDB instance as follows:
-*docker run -d -p 8086:8086 -e 'SERVICENAME=influx' -v /opt/DATA/InfluxDB:/opt/DATA --name influx influxdb-rtview*
+*docker run -d -p 8086:8086 -p 8083:8083 -e 'SERVICENAME=INFLUX' -v /opt/DATA/InfluxDB:/opt/DATA --name influx influxdb-rtview*
 	
 	name and SERVICENAME - name of the InfluxDB instance
 	p - Port number used by the InfluxDB instance
@@ -36,8 +37,9 @@ RTView-InfluxDB integration in Docker helps achieve the following goal:
 ###Step 7: Confirm if the InfluxDB instance started by the above step is running
 *docker ps -a*
 
-	You will see your InfluxDB instance listed as 'influx'
+	You will see your InfluxDB instance listed as 'INFLUX'
 ##Using the InfluxDB Instance for RTView History 
+(Directory: RTView Samples)
 * Download and setup RTView in your local machine. 
 * Edit 'influxdb_handlers.properties' file to include influxdb handlers jars in RTView class path. 
   sl.rtview.cp=%RTVAPM_USER_HOME%/lib/influxdb_handlers.jar
@@ -65,7 +67,7 @@ RTView-InfluxDB integration in Docker helps achieve the following goal:
 	* http://192.0.0.0:8086/query?pretty=true&db=RTVHISTORY&q=SHOW+MEASUREMENTS
 	
 	You should see the data being written into the InfluxDB database shown in the browser. 
-* See the browser_output.jpg for the screenshot of sample output. 
+* See the screenshot_browser_output.jpg for the screenshot of sample output. 
 	
 When you restart your application, you should now see the historian information from the InfluxDB database. 
 
