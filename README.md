@@ -14,11 +14,13 @@ RTView-InfluxDB integration in Docker helps achieve the following goal:
 
 ###Step 1: Start the Docker Engine Service using the following command. 
 *sudo service docker start*
-###Step 2: Copy the InfluxDB Docker file and the relevant configuration files to the Linux server.
+###Step 2: Copy the InfluxDB Docker file and the relevant configuration files to a local directory (e.g. ../testInfluxDB).
 	Dockerfile, run.sh, init_database.sh, influxdb.conf
+	
+	(ensure to convert run.sh and init_database.sh as executables)
 ###Step 3: Create a new directory in the server /opt/DATA with write permission. 
 *mkdir /opt/DATA*
-###Step 4: Build Docker image from the files copied over in step #1
+###Step 4: Build Docker image from the files copied over in step #2
 *docker build -t influxdb-rtview .*
 	
 	You will see a message, "Successfully build..." when the image is built without any errors. 
@@ -27,17 +29,22 @@ RTView-InfluxDB integration in Docker helps achieve the following goal:
 	
 	You will see the image created with the name "influxdb-rtview"
 ###Step 6: Run the Docker image with the InfluxDB instance as follows:
-*docker run -d -p 8086:8086 -p 8083:8083 -e 'SERVICENAME=INFLUX' -v /opt/DATA/InfluxDB:/opt/DATA --name influx influxdb-rtview*
+*docker run -d -p 8086:8086 -p 8083:8083 -e 'SERVICENAME=INFLUX-RTVIEW-1' -v /opt/DATA/InfluxDB:/opt/DATA --name INFLUXDB-RTVIEW-1 influxdb-rtview*
 	
 	name and SERVICENAME - name of the InfluxDB instance
-	p - Port number used by the InfluxDB instance
+	p - Port number (8086) used by the InfluxDB instance
+	p - Port number (8083) used by InfluxDB Admin
 	v - Data directory
 	
 	You will see an alpha numeric string printing out if the run command is successful. 
 ###Step 7: Confirm if the InfluxDB instance started by the above step is running
 *docker ps -a*
 
-	You will see your InfluxDB instance listed as 'INFLUX'
+	You will see your InfluxDB instance listed as 'INFLUXDB-RTVIEW-1' and it should say 'Up nn minutes'.
+ 
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS           NAMES
+2265b570c7dc        influxdb-rtview     "/entrypoint.sh /opt/"   17 minutes ago      Up 16 minutes       0.0.0.0:8083->8083/tcp, 0.0.0.0:8086->8086/tcp, 8088/tcp   INFLUXDB-RTVIEW-1
+
 ##Using the InfluxDB Instance for RTView History 
 (Directory: RTView Samples)
 * Download and setup RTView in your local machine. 
