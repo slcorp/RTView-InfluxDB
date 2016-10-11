@@ -40,12 +40,11 @@ RTView-InfluxDB integration in Docker helps achieve the following goal:
 ###Step 7: Confirm if the InfluxDB instance started by the above step is running
 *docker ps -a*
 
-	You will see your InfluxDB instance listed as 'INFLUXDB-RTVIEW-1' and it should say 'Up nn minutes' (sample output below).
-	
+	You will see your InfluxDB instance listed as 'INFLUXDB-RTVIEW-1' and it should say 'Up nn minutes'. 	
 	CONTAINER ID   2265b570c7dc     
 	IMAGE          influxdb-rtview 
 	COMMAND        "/entrypoint.sh /opt/"     
-	CREATED    	17 mins ago         
+	CREATED         17 mins ago         
 	STATUS          Up 16 mins     
 	PORTS           0.0.0.0:8083->8083/tcp, 0.0.0.0:8086->8086/tcp, 8088/tcp
 	NAMES           INFLUXDB-RTVIEW-1
