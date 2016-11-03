@@ -55,7 +55,7 @@ RTView-InfluxDB integration in Docker helps achieve the following goal:
 * Edit 'influxdb_handlers.properties' file to include influxdb handlers jars in RTView class path. 
   sl.rtview.cp=%RTVAPM_USER_HOME%/lib/influxdb_handlers.jar
   (use forward slash for classpath even in Windows)
-* Set environment variables in your local machine where the InfluxDB server can be found:
+* Set environment variables in your local machine where the InfluxDB server can be found. (Change the 192.0.0.0 below to the IP address of your InfluxDB server. e.g. INFLUXDB_URL=http://192.9.200.192:8086)
 	* INFLUXDB_URL=http://192.0.0.0:8086
 	* INFLUXDB_DB=RTVHISTORY
 * Configure the RTView historian to use the InfluxDB Custom Historian Handler 
@@ -74,7 +74,7 @@ RTView-InfluxDB integration in Docker helps achieve the following goal:
 	*INFO  main - [rtview] NOSQL InfluxDBHistorianHandler: com.sl.influxdb.InfluxDBHistorianHandler@1da51a35*
 
 ##To explore the data being written into the InfluxDB server
-* Open a browser window and connect to the HTTP API
+* Open a browser window and connect to the HTTP API (Use the IP address from above)
 	* http://192.0.0.0:8086/query?pretty=true&db=RTVHISTORY&q=SHOW+MEASUREMENTS
 	
 	You should see the data being written into the InfluxDB database shown in the browser. 
